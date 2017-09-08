@@ -21,7 +21,7 @@ var path = "C:/Test/";
 var filename = "Test";
 var width = 200; // not require default 200
 var height = 200; // not require default 200
-var margin = 200; // not require default 5
+var margin = 5; // not require default 5
 
 var payload = new PromptPayQrCode(identifyNumber, amount);
 payload.GeneratePromptPayQrCode(path,filename,width,height,margin);
