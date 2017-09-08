@@ -16,7 +16,7 @@ var amount = 4.22; // not require
 var payload = new PromptPayQrCode(identifyNumber, amount);
 var payloadResult = payload.PromptPayPayload; // Return PromptPay Payload for using in other QRCode Library
 ```
-- Generate QRCode from build-in library (We choose ZXing.Net)
+- Generate QRCode from build-in library (We're choose ZXing.Net)
 ```C#
 var identifyNumber = "0123456789012" // Identify ID or Phone Number;
 var amount = 4.22; // not require
