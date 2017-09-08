@@ -1,4 +1,4 @@
-# promptpay-qr
+# PromptPayQrCode
 C# library for generate QR Code payload for PromptPay.
 
 
