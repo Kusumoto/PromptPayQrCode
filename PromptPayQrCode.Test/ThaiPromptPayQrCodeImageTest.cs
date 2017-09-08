@@ -13,7 +13,7 @@ namespace PromptPayQrCode.Test
             var filename = "test_qr";
 			var phoneNumber = "0801234567";
             new PromptPayQrCode(phoneNumber).GeneratePromptPayQrCode(path, filename);
-            Assert.True(File.Exists(string.Concat(path, filename, ".png")));
+            Assert.True(File.Exists(string.Concat(path, filename, ".jpg")));
         }
     }
 }
