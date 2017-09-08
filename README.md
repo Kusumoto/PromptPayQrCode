@@ -9,7 +9,7 @@ C# library for generate PromptPay QR Code payload implemented by .NET Standard 2
 PM> Install-Package PromptPayQrCode -Version 1.0.0
 ```
 
-## PromptPay ID Support Format
+## PromptPay ID Format Support
 ### Phone Number
 - 0801234567
 - 080-123-4567
