@@ -1,5 +1,6 @@
 # PromptPayQrCode
 [![Build Status](https://travis-ci.org/Kusumoto/PromptPayQrCode.svg)](https://travis-ci.org/Kusumoto/PromptPayQrCode)
+[![Coverage Status](https://coveralls.io/repos/github/Kusumoto/PromptPayQrCode/badge.svg?branch=master)](https://coveralls.io/github/Kusumoto/PromptPayQrCode?branch=master)
 
 C# library for generate PromptPay QR Code payload.
 
