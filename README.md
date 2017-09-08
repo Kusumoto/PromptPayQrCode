@@ -27,7 +27,7 @@ PM> Install-Package PromptPayQrCode -Version 1.0.0
 var identifyNumber = "0123456789012" // Identify ID or Phone Number;
 var amount = 4.22; // not require
 
-var payload = new PromptPayQrCode(identifyNumber, amount);
+var payload = new PromptPayQrCode.PromptPayQrCode(identifyNumber, amount);
 var payloadResult = payload.PromptPayPayload; // Return PromptPay Payload for using in other QRCode Library
 ```
 - Generate QRCode from build-in library (We're choose ZXing.Net/CoreCompat.System.Drawing)
@@ -40,7 +40,7 @@ var width = 200; // not require default 200
 var height = 200; // not require default 200
 var margin = 5; // not require default 5
 
-var payload = new PromptPayQrCode(identifyNumber, amount);
+var payload = new PromptPayQrCode.PromptPayQrCode(identifyNumber, amount);
 payload.GeneratePromptPayQrCode(path,filename,width,height,margin);
 ```
 
