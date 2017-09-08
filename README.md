@@ -1,5 +1,7 @@
 # PromptPayQrCode
-C# library for generate QR Code payload for PromptPay.
+[![Build Status](https://travis-ci.org/Kusumoto/PromptPayQrCode.svg)](https://travis-ci.org/Kusumoto/PromptPayQrCode)
+
+C# library for generate PromptPay QR Code payload.
 
 
 ## References
