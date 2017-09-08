@@ -1,10 +1,10 @@
 ﻿using PromptPayQrCode.Core;
 using PromptPayQrCode.Exception;
-using System.Drawing;
 using ZXing;
 using ZXing.Common;
-using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using ImageSharp;
+using System.IO;
 
 namespace PromptPayQrCode
 {
@@ -40,19 +40,12 @@ namespace PromptPayQrCode
                     Margin = margin
                 }
             };
-			var pixelData = barcodeWriter.Write(PromptPayPayload);
-            using (var bitmap = new Bitmap(pixelData.Width, pixelData.Height))
-            {
-                var bitmapData = bitmap.LockBits(new Rectangle(0, 0, pixelData.Width, pixelData.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppRgb);
-                try
-                {
-                    Marshal.Copy(pixelData.Pixels, 0, bitmapData.Scan0, pixelData.Pixels.Length);
-				}
-				finally
-				{
-					bitmap.UnlockBits(bitmapData);
-				}
-                bitmap.Save(string.Concat(path, filename, ".png"), ImageFormat.Png);
+            var pixelData = barcodeWriter.Write(PromptPayPayload);
+            using (var fileStream = new FileStream(path + filename + ".jpg", FileMode.CreateNew))
+			using (var image = Image.LoadPixelData<Rgba32>(pixelData.Pixels, width, height))
+			{
+                image.SaveAsJpeg(fileStream);
+                fileStream.Flush();
 			}
         }
     }
