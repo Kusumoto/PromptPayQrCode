@@ -3,6 +3,9 @@
 
 C# library for generate PromptPay QR Code payload
 
+## Install
+Waiting for upload package to nuget
+
 ## How to use
 
 - Get a PromptPay Payload
