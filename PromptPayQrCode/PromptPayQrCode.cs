@@ -28,7 +28,7 @@ namespace PromptPayQrCode
             _promptPayPayload = promptPayManager.GeneratePromptPayPayload();
         }
 
-        public void GeneratePromptPayQrCode(string path, string filename, int width = 200, int height = 200, int margin = 10)
+        public void GeneratePromptPayQrCode(string path, string filename, int width = 200, int height = 200, int margin = 5)
         {
             var barcodeWriter = new BarcodeWriterPixelData
             {
@@ -36,7 +36,8 @@ namespace PromptPayQrCode
                 Options = new EncodingOptions
                 {
                     Height = height,
-                    Width = width
+                    Width = width,
+                    Margin = margin
                 }
             };
 			var pixelData = barcodeWriter.Write(PromptPayPayload);
