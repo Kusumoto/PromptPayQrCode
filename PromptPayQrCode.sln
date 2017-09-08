@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromptPayQrCode", "PromptPayQRCode\PromptPayQrCode.csproj", "{71F7597B-D2D6-4B97-8BD7-163BFC470C0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromptPayQrCode", "PromptPayQrCode\PromptPayQrCode.csproj", "{71F7597B-D2D6-4B97-8BD7-163BFC470C0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromptPayQrCode.Test", "PromptPayQrCode.Test\PromptPayQrCode.Test.csproj", "{178A052D-DAC8-4524-9362-C21E8CC95CA6}"
 EndProject

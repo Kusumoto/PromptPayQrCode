@@ -1,4 +1,3 @@
-using PromptPayQrCode.Core;
 using Xunit;
 
 namespace PromptPayQrCode.Test

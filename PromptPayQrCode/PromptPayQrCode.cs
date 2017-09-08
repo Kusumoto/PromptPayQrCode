@@ -3,8 +3,9 @@ using PromptPayQrCode.Exception;
 using ZXing;
 using ZXing.Common;
 using System.Runtime.InteropServices;
-using ImageSharp;
 using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace PromptPayQrCode
 {
@@ -42,10 +43,22 @@ namespace PromptPayQrCode
             };
             var pixelData = barcodeWriter.Write(PromptPayPayload);
             using (var fileStream = new FileStream(path + filename + ".jpg", FileMode.CreateNew))
-			using (var image = Image.LoadPixelData<Rgba32>(pixelData.Pixels, width, height))
+			using (var bitmap = new Bitmap(pixelData.Width, pixelData.Height, PixelFormat.Format32bppRgb))
 			{
-                image.SaveAsJpeg(fileStream);
-                fileStream.Flush();
+				var bitmapData = bitmap.LockBits(new Rectangle(0, 0, pixelData.Width, pixelData.Height),
+				   ImageLockMode.WriteOnly, PixelFormat.Format32bppRgb);
+				try
+				{
+					// we assume that the row stride of the bitmap is aligned to 4 byte multiplied by the width of the image 
+					Marshal.Copy(pixelData.Pixels, 0, bitmapData.Scan0,
+					   pixelData.Pixels.Length);
+				}
+				finally
+				{
+					bitmap.UnlockBits(bitmapData);
+				}
+                bitmap.Save(fileStream, ImageFormat.Jpeg);
+				fileStream.Flush();
 			}
         }
     }
