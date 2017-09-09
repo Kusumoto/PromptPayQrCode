@@ -3,13 +3,28 @@
 
 C# library for generate PromptPay QR Code payload implemented by .NET Standard 2.0
 
+---
+![Testing on ASP.Net MVC (.Net Framework 4.6.1)](https://github.com/Kusumoto/PromptPayQrCode/raw/master/screenshot_mvc_framework.png)
+
+Testing on ASP.Net MVC (.Net Framework 4.6.1)
+
+![Testing on ASP.Net MVC (Mono Framework)](https://github.com/Kusumoto/PromptPayQrCode/raw/master/screenshot_mvc_mono.png)
+
+Testing on ASP.Net MVC (Mono Framework)
+
+![Testing on ASP.Net MVC Core (.Net Core 2.0)](https://github.com/Kusumoto/PromptPayQrCode/raw/master/screenshot_mvc_core2.png)
+
+Testing on ASP.Net MVC Core (.Net Core 2.0)
+
+---
+
 ## Install via Nuget Package Manager
 
 ```sh
 PM> Install-Package PromptPayQrCode
 ```
 ## Dependencies
-- libgdiplus (For .Net Core running in linux/osx)
+- libgdiplus (.Net Core running in linux/osx)
 
 ## PromptPay ID Format Support
 ### Phone Number
