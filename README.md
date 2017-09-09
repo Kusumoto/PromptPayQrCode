@@ -6,8 +6,10 @@ C# library for generate PromptPay QR Code payload implemented by .NET Standard 2
 ## Install via Nuget Package Manager
 
 ```sh
-PM> Install-Package PromptPayQrCode -Version 1.0.0
+PM> Install-Package PromptPayQrCode
 ```
+## Dependencies
+- libgdiplus (For .Net Core running in linux/osx)
 
 ## PromptPay ID Format Support
 ### Phone Number
@@ -30,7 +32,7 @@ var amount = 4.22; // not require
 var payload = new PromptPayQrCode.PromptPayQrCode(identifyNumber, amount);
 var payloadResult = payload.PromptPayPayload; // Return PromptPay Payload for using in other QRCode Library
 ```
-- Generate QRCode from build-in library (We're choose ZXing.Net/CoreCompat.System.Drawing)
+- Generate QRCode from build-in library (We're choose ZXing.Net) If you using .Net Standard 2.0, you need to install CoreCompat.System.Drawing package.
 ```C#
 var identifyNumber = "0123456789012" // Identify ID or Phone Number;
 var amount = 4.22; // not require

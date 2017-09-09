@@ -1,13 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+    <Version>1.0.1</Version>
+    <Description>C# library for generate PromptPay QR Code payload</Description>
+    <Authors>Kusumoto</Authors>
+    <Company />
+    <Product />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/Kusumoto/PromptPayQrCode</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Extension\" />
     <Folder Include="Core\" />
     <Folder Include="Exception\" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+    <PackageReference Include="ZXing.Net" Version="0.16.1" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="ZXing.Net" Version="0.16.1" />
     <PackageReference Include="CoreCompat.System.Drawing" Version="1.0.0-beta006" />
   </ItemGroup>
