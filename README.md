@@ -1,5 +1,6 @@
 # PromptPayQrCode
 [![Build Status](https://travis-ci.org/Kusumoto/PromptPayQrCode.svg)](https://travis-ci.org/Kusumoto/PromptPayQrCode)
+[![NuGet version](https://badge.fury.io/nu/PromptPayQrCode.svg)](https://badge.fury.io/nu/PromptPayQrCode)
 
 C# library for generate PromptPay QR Code payload implemented by .NET Standard 2.0
 
