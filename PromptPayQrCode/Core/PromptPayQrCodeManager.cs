@@ -18,7 +18,12 @@ namespace PromptPayQrCode.Core
         public string GeneratePromptPayPayload()
         {
 			var target = SanitizeTarget(_promptPayId);
-			var targetType = target.Length >= 13 ? PromptPayQrCodeConstant.BOT_ID_MERCHANT_TAX_ID : PromptPayQrCodeConstant.BOT_ID_MERCHANT_PHONE_NUMBER;
+            var targetType = target.Length >= 15 ? 
+                                   ( PromptPayQrCodeConstant.BOT_ID_MERCHANT_EWALLET_ID ) :
+                                   target.Length >= 13 ? 
+                                   ( PromptPayQrCodeConstant.BOT_ID_MERCHANT_TAX_ID )
+                                   : ( PromptPayQrCodeConstant.BOT_ID_MERCHANT_PHONE_NUMBER );
+            
 			var data = new string[]
 			{
 				Format(PromptPayQrCodeConstant.ID_PAYLOAD_FORMAT, PromptPayQrCodeConstant.PAYLOAD_FORMAT_EMV_QRCPS_MERCHANT_PRESENTED_MODE),

@@ -75,5 +75,15 @@ namespace PromptPayQrCode.Test
             
 			Assert.Equal(payloadResult, payload);
 		}
+        [Fact]
+        public void Generate_PromptPay_Payload_Ewallet_Test()
+        {
+			var identifyNumber = "012345678901234";
+			var payloadResult = "00020101021129390016A00000067701011103150123456789012345802TH530376463049781";
+			var payload = new PromptPayQrCode(identifyNumber)
+						  .PromptPayPayload;
+
+			Assert.Equal(payloadResult, payload);
+        }
     }
 }

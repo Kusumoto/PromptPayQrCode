@@ -49,7 +49,6 @@ namespace PromptPayQrCode
 				   ImageLockMode.WriteOnly, PixelFormat.Format32bppRgb);
 				try
 				{
-					// we assume that the row stride of the bitmap is aligned to 4 byte multiplied by the width of the image 
 					Marshal.Copy(pixelData.Pixels, 0, bitmapData.Scan0,
 					   pixelData.Pixels.Length);
 				}
