@@ -37,6 +37,8 @@ PM> Install-Package PromptPayQrCode
 - 1-1111-11111-11-1
 ### Tax ID
 - 0123456789012
+### e-Wallet ID
+- 012345678901234
 
 ## How to use
 
