@@ -29,6 +29,37 @@ namespace PromptPayQrCode
             _promptPayPayload = promptPayManager.GeneratePromptPayPayload();
         }
 
+        public void GeneratePromptPayQrCodeWithMemoryStream(MemoryStream stream, int width = 200, int height = 200, int margin = 5)
+        {
+			var barcodeWriter = new BarcodeWriterPixelData
+			{
+				Format = BarcodeFormat.QR_CODE,
+				Options = new EncodingOptions
+				{
+					Height = height,
+					Width = width,
+					Margin = margin
+				}
+			};
+			var pixelData = barcodeWriter.Write(PromptPayPayload);
+            using (var bitmap = new Bitmap(pixelData.Width, pixelData.Height, PixelFormat.Format32bppRgb))
+            {
+				var bitmapData = bitmap.LockBits(new Rectangle(0, 0, pixelData.Width, pixelData.Height),
+				   ImageLockMode.WriteOnly, PixelFormat.Format32bppRgb);
+				try
+				{
+					Marshal.Copy(pixelData.Pixels, 0, bitmapData.Scan0,
+					   pixelData.Pixels.Length);
+				}
+				finally
+				{
+					bitmap.UnlockBits(bitmapData);
+				}
+                bitmap.Save(stream, ImageFormat.Jpeg);
+				stream.Flush();
+            };
+        }
+
         public void GeneratePromptPayQrCode(string path, string filename, int width = 200, int height = 200, int margin = 5)
         {
             var barcodeWriter = new BarcodeWriterPixelData
